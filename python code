@@ -1,0 +1,25 @@
+import art
+print (art.logo)
+
+def max_bid(bid_dic):
+    max_bid = 0
+    winner = ""
+    for bid in bid_dic:
+        if bid_dic[bid] > max_bid:
+            max_bid = bid_dic[bid]
+            winner = bid
+    print(f"The Winner is {winner} with a bid of ${max_bid}.")
+
+bidders = {}
+continue_bidding = True
+while continue_bidding:
+    print("Welcome to the secret auction program.")
+    name = input("What is your name? : ")
+    bid = int(input("What is your bid? : $"))
+    bidders[name] = bid
+    should_continue = input("Are there any other bidders?\t type 'yes or 'no.\n").lower()
+    if should_continue == 'no':
+        continue_bidding = False
+        max_bid(bidders)
+    elif should_continue =='yes':
+        print("\n"*100)
